@@ -1,0 +1,36 @@
+---
+title: "Homework_3"
+author: "Ethan Pastel"
+date: "2024-03-06"
+output: html_document
+---
+
+# Problem 1: For each month, calculate the proportion of rides made on a given day of the month. Then make box plots of the proportions of ridership vs day of the weak. But exclude any days from 2004 and 2005.
+
+```{r}
+library(tidyverse)
+library(readxl)
+
+wmata_ridership_1_ <- read_excel("C:/Users/cmpas/Downloads/wmata_ridership (1).xlsx")
+head(wmata_ridership_1_)
+
+
+wmata_ridership_1_$Date <- as.Date(wmata_ridership_1_$Date)
+
+wmata_ridership_1_ <- wmata_ridership_1_ %>% filter(year(Date) %in% c(2004, 2005))
+
+proportion_rides <- wmata_ridership_1_ %>%
+  group_by(month = format(Date, "%B"), day = format(Date, "%d"), day_of_week = weekdays(Date)) %>%
+  summarize(proportion = sum(Total) / sum(wmata_ridership_1_$Total), .groups = "drop")
+
+ggplot(proportion_rides, aes(x = factor(day_of_week, levels = c("Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday")), y = proportion)) +
+  geom_boxplot() + labs(title = "Proportion of Ridership vs Day of the Week", x = "Day of the Week", y = "Proportion of Ridership")
+
+```
+
+# Problem 2: Write only one line of the code to return only the leap years fo years 2024, 3021, 2000 or 1800, 800, 5050, 600 and 7156.
+
+```{r}
+
+```
+

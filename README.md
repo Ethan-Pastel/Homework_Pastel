@@ -17,3 +17,5 @@
 # Problem 2_c is done!
 
 # Problem 3 is done!!!!
+
+# HomeWork 3 problem 1 is done!!
