@@ -31,6 +31,12 @@ ggplot(proportion_rides, aes(x = factor(day_of_week, levels = c("Sunday", "Monda
 # Problem 2: Write only one line of the code to return only the leap years fo years 2024, 3021, 2000 or 1800, 800, 5050, 600 and 7156.
 
 ```{r}
+library(lubridate)
+library(tidyverse)
+
+leap_years_only <- c(2024, 3021, 2000, 1800, 800, 5050, 600, 7156)[sapply(c(2024, 3021, 2000, 1800, 800, 5050, 600, 7156), leap_year)]
+
+leap_years_only
 
 ```
 
