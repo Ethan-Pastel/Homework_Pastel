@@ -13,3 +13,5 @@
 # Problem 2a is done!
 
 # Problem 2_b is done!
+
+# Problem 2_c is done!
